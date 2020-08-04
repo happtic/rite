@@ -1,0 +1,32 @@
+{
+  "name": "@happtic/rite",
+  "version": "0.0.1",
+  "description": "Finds degree of similarity between strings, based on Dice's Coefficient, which is mostly better than Levenshtein distance.",
+  "main": "build/rite.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cljs-test": "^0.1.0",
+    "karma-safari-launcher": "^1.0.0",
+    "shadow-cljs": "^2.10.17"
+  },
+  "scripts": {
+    "build": "shadow-cljs release npm",
+    "test": "lein doo chrome browser-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happtic/rite.git"
+  },
+  "author": "Hamish Rickerby <hamish@happtic.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/happtic/rite/issues"
+  },
+  "homepage": "https://github.com/happtic/rite#readme"
+}

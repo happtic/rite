@@ -1,0 +1,41 @@
+* rite
+
+/rite: be equal, similar (to something else)./
+
+/He rite te tikanga o tēnei ki tō runga ake nei. / The meaning of this is similar to that of the above./
+
+A string similarity library. It finds degree of similarity between strings, based on Dice's Coefficient, which is mostly better than Levenshtein distance.
+
+** Why?
+
+This is a clojurescript port of the javascript [[https://github.com/aceakash/string-similarity][string-similarity]] library. It was built for a few reasons:
+
+- Learning.
+- We use string-similarity within [[https://beecastle.com][BeeCastle]] and had an issue with older versions of Internet Explorer, and wanted something that would work in that environment.
+- It was also an exercise in converting a very imperative, mutable state driven algorithm to a functional, immutable one.
+
+** Usage
+
+*** CLJS
+
+Require the namespace
+
+#+BEGIN_SRC clojure
+  (ns example.core
+    (:require [rite.core :as rite]))
+#+END_SRC
+
+Get best match to a given string from a set of other strings
+
+#+BEGIN_SRC clojure
+  (-> (rite.find-best-match "healed" ["mailed" "edward" "sealed" "theatre"])
+      :best-match
+      :target) ;; => "sealed"
+#+END_SRC
+
+*** Node/Browser
+
+#+BEGIN_SRC javascript
+var rite = require('./build/rite');
+rite.findBestMatch('healed', ['mailed', 'edward', 'sealed', 'theatre']).bestMatch.target; // 'sealed'
+#+END_SRC
